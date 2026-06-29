@@ -92,6 +92,43 @@
     });
   });
 
+  /* ----- Gallery 3D tilt ----- */
+  var galleryItems = document.querySelectorAll('.gallery-item');
+  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (galleryItems.length && !prefersReducedMotion) {
+    if (canHover) {
+      galleryItems.forEach(function (item) {
+        item.addEventListener('mousemove', function (e) {
+          var rect = item.getBoundingClientRect();
+          var x = (e.clientX - rect.left) / rect.width - 0.5;
+          var y = (e.clientY - rect.top) / rect.height - 0.5;
+          item.style.setProperty('--rx', (x * 16).toFixed(2) + 'deg');
+          item.style.setProperty('--ry', (y * -16).toFixed(2) + 'deg');
+          item.style.setProperty('--scale', '1.04');
+        });
+        item.addEventListener('mouseleave', function () {
+          item.style.setProperty('--rx', '0deg');
+          item.style.setProperty('--ry', '0deg');
+          item.style.setProperty('--scale', '1');
+        });
+      });
+    } else {
+      galleryItems.forEach(function (item) {
+        item.addEventListener('touchstart', function () {
+          item.style.setProperty('--rx', '8deg');
+          item.style.setProperty('--ry', '-8deg');
+          item.style.setProperty('--scale', '1.05');
+          setTimeout(function () {
+            item.style.setProperty('--rx', '0deg');
+            item.style.setProperty('--ry', '0deg');
+            item.style.setProperty('--scale', '1');
+          }, 350);
+        }, { passive: true });
+      });
+    }
+  }
+
   /* ----- Reviews carousel ----- */
   var track = document.querySelector('.reviews-track');
   var prevBtn = document.getElementById('reviews-prev');

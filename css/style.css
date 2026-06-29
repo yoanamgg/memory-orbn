@@ -500,6 +500,7 @@ h3 { font-size: 1.25rem; margin-bottom: 8px; }
   box-shadow: var(--shadow-md);
 }
 .map-placeholder span { font-size: 0.85rem; max-width: 280px; }
+.map-placeholder.map-embed { padding: 0; overflow: hidden; background: var(--color-bg-alt); }
 
 .reservation-form {
   background: var(--color-surface);

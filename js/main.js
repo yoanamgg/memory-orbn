@@ -17,15 +17,47 @@
   var mainNav = document.getElementById('main-nav');
   var backToTop = document.getElementById('back-to-top');
   var openBadge = document.getElementById('open-status-badge');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ----- Sticky header ----- */
-  function onScroll() {
-    var scrolled = window.scrollY > 10;
+  /* ----- Preloader ----- */
+  var preloader = document.getElementById('preloader');
+  function hidePreloader() { if (preloader) preloader.classList.add('is-done'); }
+  window.addEventListener('load', function () { setTimeout(hidePreloader, 350); });
+  // Safety net in case 'load' already fired or is delayed
+  setTimeout(hidePreloader, 2500);
+
+  /* ----- Scroll progress + parallax (rAF batched) ----- */
+  var progressBar = document.getElementById('scroll-progress');
+  var heroBg = document.getElementById('hero-bg');
+  var heroContent = document.getElementById('hero-content');
+  var ticking = false;
+
+  function updateOnScroll() {
+    var y = window.scrollY;
+    var scrolled = y > 10;
     header.classList.toggle('scrolled', scrolled);
-    if (backToTop) backToTop.hidden = window.scrollY < 600;
+    if (backToTop) backToTop.hidden = y < 600;
+
+    if (progressBar) {
+      var docH = document.documentElement.scrollHeight - window.innerHeight;
+      var ratio = docH > 0 ? Math.min(y / docH, 1) : 0;
+      progressBar.style.transform = 'scaleX(' + ratio + ')';
+    }
+
+    if (!reduceMotion && y < window.innerHeight) {
+      if (heroBg) heroBg.style.transform = 'translateY(' + (y * 0.3) + 'px) scale(1.05)';
+      if (heroContent) {
+        heroContent.style.transform = 'translateY(' + (y * 0.18) + 'px)';
+        heroContent.style.opacity = String(Math.max(1 - y / 600, 0));
+      }
+    }
+    ticking = false;
+  }
+  function onScroll() {
+    if (!ticking) { window.requestAnimationFrame(updateOnScroll); ticking = true; }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  updateOnScroll();
 
   /* ----- Mobile nav ----- */
   if (navToggle && mainNav) {
@@ -76,6 +108,62 @@
     revealEls.forEach(function (el) { revealObserver.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+
+  /* ----- Animated counters ----- */
+  var counters = document.querySelectorAll('[data-count]');
+  function animateCount(el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    if (reduceMotion) {
+      el.textContent = target.toFixed(decimals).replace('.', ',') + suffix;
+      return;
+    }
+    var start = null;
+    var duration = 1300;
+    function tick(ts) {
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = (target * eased).toFixed(decimals).replace('.', ',');
+      el.textContent = val + suffix;
+      if (p < 1) window.requestAnimationFrame(tick);
+    }
+    window.requestAnimationFrame(tick);
+  }
+  if (counters.length && 'IntersectionObserver' in window) {
+    var countObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { animateCount(entry.target); obs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (c) { countObserver.observe(c); });
+  }
+
+  /* ----- Hero spotlight follows cursor ----- */
+  var hero = document.querySelector('.hero');
+  var spotlight = document.getElementById('hero-spotlight');
+  if (hero && spotlight && !reduceMotion && window.matchMedia('(hover: hover)').matches) {
+    hero.addEventListener('mousemove', function (e) {
+      var rect = hero.getBoundingClientRect();
+      spotlight.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100).toFixed(1) + '%');
+      spotlight.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100).toFixed(1) + '%');
+    });
+  }
+
+  /* ----- Magnetic buttons ----- */
+  var magnets = document.querySelectorAll('.btn-magnetic');
+  if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    magnets.forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var rect = btn.getBoundingClientRect();
+        var x = e.clientX - rect.left - rect.width / 2;
+        var y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = 'translate(' + (x * 0.25).toFixed(1) + 'px, ' + (y * 0.35).toFixed(1) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function () { btn.style.transform = ''; });
+    });
   }
 
   /* ----- Menu tabs ----- */

@@ -72,6 +72,14 @@
 
 <a class="skip-link" href="#main">Aller au contenu principal</a>
 
+<div class="preloader" id="preloader" aria-hidden="true">
+  <svg class="preloader-mark"><use href="#icon-star"/></svg>
+  <span class="preloader-text">Chez Saïd</span>
+  <span class="preloader-bar"></span>
+</div>
+
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
 <header class="site-header" id="header">
   <div class="container header-inner">
     <a href="#accueil" class="logo">
@@ -114,8 +122,11 @@
          grilled meat shaved from a rotating spit visible in the blurred background, warm
          golden-hour lighting, shallow depth of field, appetizing steam rising, shot on a dark
          slate plate, restaurant ambiance, high-end editorial food photography, 8k, photorealistic" -->
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container hero-content">
+    <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
+    <div class="hero-spotlight" id="hero-spotlight" aria-hidden="true"></div>
+    <span class="hero-orb hero-orb-1" aria-hidden="true"></span>
+    <span class="hero-orb hero-orb-2" aria-hidden="true"></span>
+    <div class="container hero-content" id="hero-content">
       <p class="eyebrow" data-reveal>Cuisine marocaine authentique • 100% Halal</p>
       <h1 data-reveal>Chez Saïd</h1>
       <p class="hero-subtitle" data-reveal>Kebabs généreux, tajines mijotés et saveurs du Maroc, préparés chaque jour avec des produits frais.</p>
@@ -130,8 +141,8 @@
       </div>
 
       <div class="hero-actions" data-reveal>
-        <a href="#menu" class="btn btn-primary btn-lg">Découvrir le menu</a>
-        <a href="#contact" class="btn btn-outline btn-lg">Commander &amp; réserver</a>
+        <a href="#menu" class="btn btn-primary btn-lg btn-magnetic">Découvrir le menu</a>
+        <a href="#contact" class="btn btn-outline btn-lg btn-magnetic">Commander &amp; réserver</a>
       </div>
 
       <ul class="hero-services" data-reveal>
@@ -149,15 +160,15 @@
   <section class="stats-bar">
     <div class="container stats-grid">
       <div class="stat">
-        <strong>4,1<span class="stat-sub">/5</span></strong>
+        <strong><span class="count" data-count="4.1" data-decimals="1">4,1</span><span class="stat-sub">/5</span></strong>
         <span>110 avis Google</span>
       </div>
       <div class="stat">
-        <strong>100%</strong>
+        <strong><span class="count" data-count="100" data-suffix="%">100%</span></strong>
         <span>Viande halal</span>
       </div>
       <div class="stat">
-        <strong>3</strong>
+        <strong><span class="count" data-count="3">3</span></strong>
         <span>Sur place, à emporter ou livré</span>
       </div>
       <div class="stat">
@@ -166,6 +177,28 @@
       </div>
     </div>
   </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Tajine d'agneau</span><span class="marquee-dot">✦</span>
+      <span>Couscous royal</span><span class="marquee-dot">✦</span>
+      <span>Kebab maison</span><span class="marquee-dot">✦</span>
+      <span>Thé à la menthe</span><span class="marquee-dot">✦</span>
+      <span>Pastilla au poulet</span><span class="marquee-dot">✦</span>
+      <span>Brochettes marinées</span><span class="marquee-dot">✦</span>
+      <span>Café marocain</span><span class="marquee-dot">✦</span>
+      <span>Cornes de gazelle</span><span class="marquee-dot">✦</span>
+      <span>Tajine d'agneau</span><span class="marquee-dot">✦</span>
+      <span>Couscous royal</span><span class="marquee-dot">✦</span>
+      <span>Kebab maison</span><span class="marquee-dot">✦</span>
+      <span>Thé à la menthe</span><span class="marquee-dot">✦</span>
+      <span>Pastilla au poulet</span><span class="marquee-dot">✦</span>
+      <span>Brochettes marinées</span><span class="marquee-dot">✦</span>
+      <span>Café marocain</span><span class="marquee-dot">✦</span>
+      <span>Cornes de gazelle</span><span class="marquee-dot">✦</span>
+    </div>
+  </div>
 
   <!-- ============ ABOUT ============ -->
   <section class="about" id="apropos">
@@ -231,6 +264,36 @@
           <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-wheelchair"/></svg></span>
           <h3>Accessibilité</h3>
           <p>Parking et places assises accessibles aux personnes en fauteuil roulant.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STEPS / COMMANDER ============ -->
+  <section class="steps" id="commander">
+    <div class="container">
+      <p class="section-eyebrow center" data-reveal>Simple &amp; rapide</p>
+      <h2 class="center" data-reveal>Commander en 3 étapes</h2>
+      <p class="section-intro center" data-reveal>Sur place, à emporter ou en livraison&nbsp;: votre repas marocain en quelques minutes.</p>
+
+      <div class="steps-grid" data-reveal>
+        <div class="step">
+          <div class="step-num">1<svg class="icon" aria-hidden="true"><use href="#icon-plate"/></svg></div>
+          <h3>Choisissez vos plats</h3>
+          <p>Parcourez notre carte&nbsp;: kebabs généreux, tajines mijotés, desserts maison.</p>
+          <a href="#menu" class="step-cta">Voir le menu <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg></a>
+        </div>
+        <div class="step">
+          <div class="step-num">2<svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg></div>
+          <h3>Appelez ou réservez</h3>
+          <p>Passez commande par téléphone ou WhatsApp, ou réservez votre table en ligne.</p>
+          <a href="https://wa.me/33788555572" target="_blank" rel="noopener" class="step-cta">Commander sur WhatsApp <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg></a>
+        </div>
+        <div class="step">
+          <div class="step-num">3<svg class="icon" aria-hidden="true"><use href="#icon-leaf"/></svg></div>
+          <h3>Dégustez</h3>
+          <p>Installez-vous chez nous, récupérez votre commande ou faites-vous livrer.</p>
+          <a href="#contact" class="step-cta">Nous trouver <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg></a>
         </div>
       </div>
     </div>
@@ -592,6 +655,13 @@
     <p>&copy; <span id="footer-year"></span> Chez Saïd — Restaurant Marocain Kebab. Tous droits réservés.</p>
   </div>
 </footer>
+
+<nav class="action-bar" aria-label="Actions rapides">
+  <a href="tel:+33788555572"><svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>Appeler</a>
+  <a href="https://wa.me/33788555572" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg>WhatsApp</a>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=29+Rue+des+Jacobins+09200+Saint-Girons" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>Itinéraire</a>
+  <a href="#contact" class="action-accent"><svg class="icon" aria-hidden="true"><use href="#icon-table"/></svg>Réserver</a>
+</nav>
 
 <a href="tel:+33788555572" class="float-call" aria-label="Appeler le restaurant">
   <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>

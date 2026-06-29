@@ -590,10 +590,12 @@ h3 { font-size: 1.25rem; margin-bottom: 8px; }
 }
 
 @media (max-width: 860px) {
-  .main-nav { position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0;
-    background: var(--color-bg); padding: 24px; transform: translateY(-110%);
-    transition: transform var(--transition); overflow-y: auto; }
-  .main-nav.open { transform: translateY(0); }
+  .main-nav { position: fixed; top: var(--header-h); left: 0; right: 0;
+    height: calc(100dvh - var(--header-h));
+    background: var(--color-bg); padding: 24px;
+    transform: translateY(-120%); visibility: hidden;
+    transition: transform var(--transition), visibility var(--transition); overflow-y: auto; }
+  .main-nav.open { transform: translateY(0); visibility: visible; }
   .main-nav ul { flex-direction: column; gap: 4px; }
   .main-nav a { display: block; padding: 14px 4px; font-size: 1.05rem; border-bottom: 1px solid var(--color-border); }
   .header-actions .phone-link span:last-child { display: none; }
@@ -820,6 +822,17 @@ h2.center::after {
   -webkit-backdrop-filter: blur(16px) saturate(150%);
   border-bottom: 1px solid rgba(228, 201, 152, 0.5);
   box-shadow: 0 8px 30px -12px rgba(42, 30, 20, 0.28);
+}
+/* Legible light header while it sits over the dark hero (not yet scrolled) */
+.site-header:not(.scrolled) .logo-text { color: #fff; }
+.site-header:not(.scrolled) .logo-mark { color: var(--color-gold-light); }
+.site-header:not(.scrolled) .phone-link { color: #fff; }
+.site-header:not(.scrolled) .phone-link .icon { color: var(--color-gold-light); }
+.site-header:not(.scrolled) .nav-toggle span { background: #fff; }
+@media (min-width: 861px) {
+  .site-header:not(.scrolled) .main-nav a { color: rgba(255, 255, 255, 0.92); }
+  .site-header:not(.scrolled) .main-nav a.active { color: var(--color-gold-light); }
+  .site-header:not(.scrolled) .main-nav a::after { background: var(--color-gold-light); }
 }
 
 /* ----- Dominant "Appeler pour commander" call button ----- */

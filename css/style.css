@@ -795,3 +795,133 @@ h2.center::after {
   .preloader-mark, .preloader-bar::after { animation: none; }
   .hero-orb { animation: none; }
 }
+
+/* ============================================================
+   ========  IMMERSIVE / MODERN WARM THEME (v5)  =============
+   ============================================================ */
+
+/* ----- Living aurora hero background ----- */
+.hero-bg {
+  background-size: 165% 165%;
+  animation: auroraShift 22s ease-in-out infinite;
+}
+@keyframes auroraShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ----- Glassmorphism header ----- */
+.site-header.scrolled {
+  background: rgba(251, 246, 236, 0.7);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border-bottom: 1px solid rgba(228, 201, 152, 0.5);
+  box-shadow: 0 8px 30px -12px rgba(42, 30, 20, 0.28);
+}
+
+/* ----- Dominant "Appeler pour commander" call button ----- */
+.btn-call {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  animation: callGlow 2.8s ease-in-out infinite;
+}
+.btn-call::after {
+  content: ''; position: absolute; top: 0; left: -130%;
+  width: 55%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+  transform: skewX(-20deg); transition: left 0.7s ease;
+}
+.btn-call:hover::after { left: 135%; }
+.btn-call .icon { width: 20px; height: 20px; }
+.btn-call .btn-call-num {
+  font-weight: 800; letter-spacing: 0.02em;
+  margin-left: 8px; padding-left: 10px;
+  border-left: 1px solid rgba(255,255,255,0.45);
+}
+@keyframes callGlow {
+  0%, 100% { box-shadow: 0 10px 34px -8px rgba(191,78,48,0.65); }
+  50% { box-shadow: 0 12px 46px -4px rgba(228,201,152,0.75); }
+}
+
+/* ----- Immersive section backgrounds (warm depth) ----- */
+.services {
+  background:
+    radial-gradient(circle at 12% -5%, rgba(201,163,110,0.22), transparent 42%),
+    radial-gradient(circle at 105% 110%, rgba(31,111,92,0.14), transparent 46%),
+    var(--color-bg-alt);
+}
+.infos {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(191,78,48,0.12), transparent 40%),
+    radial-gradient(circle at 0% 100%, rgba(201,163,110,0.2), transparent 44%),
+    var(--color-bg-alt);
+}
+.gallery {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(201,163,110,0.16), transparent 45%),
+    var(--color-bg-alt);
+}
+.steps {
+  background:
+    radial-gradient(circle at 85% 10%, rgba(201,163,110,0.16), transparent 42%),
+    var(--color-bg);
+}
+
+/* ----- Glass cards with glow on hover ----- */
+.service-card, .infos-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.service-card:hover, .infos-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 26px 52px -20px rgba(191, 78, 48, 0.4);
+  border-color: rgba(191, 78, 48, 0.35);
+}
+.review-card {
+  border: 1px solid rgba(228, 201, 152, 0.45);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 46px -20px rgba(42, 30, 20, 0.3);
+}
+
+/* ----- Glass menu tabs ----- */
+.menu-tab {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ----- Step number with soft glow ring ----- */
+.step-num::before {
+  content: ''; position: absolute; inset: -7px;
+  border-radius: 50%;
+  border: 1px solid rgba(191, 78, 48, 0.25);
+  animation: ringPulse 3s ease-in-out infinite;
+}
+@keyframes ringPulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.12); opacity: 0; }
+}
+
+/* ----- Glass floating call (desktop) ----- */
+.float-call {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+}
+
+@media (max-width: 560px) {
+  .btn-call { flex-wrap: wrap; font-size: 0.95rem; }
+  .btn-call .btn-call-num { margin-left: 0; padding-left: 0; border-left: none; width: 100%; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg { animation: none; }
+  .btn-call { animation: none; }
+  .step-num::before { animation: none; }
+}

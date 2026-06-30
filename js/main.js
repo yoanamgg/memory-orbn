@@ -1,15 +1,15 @@
 (function () {
   'use strict';
 
-  /* ===== Config: update these to match the real restaurant ===== */
+  /* ===== Config: horaires réels de la boucherie (chaque jour = liste de créneaux, vide si fermé) ===== */
   var HOURS = [
-    { day: 'Lundi', open: '11:00', close: '23:00' },
-    { day: 'Mardi', open: '11:00', close: '23:00' },
-    { day: 'Mercredi', open: '11:00', close: '23:00' },
-    { day: 'Jeudi', open: '11:00', close: '23:00' },
-    { day: 'Vendredi', open: '11:00', close: '23:30' },
-    { day: 'Samedi', open: '11:00', close: '23:30' },
-    { day: 'Dimanche', open: '12:00', close: '22:30' }
+    { day: 'Lundi', shifts: [] },
+    { day: 'Mardi', shifts: [['09:00', '12:30'], ['16:00', '19:00']] },
+    { day: 'Mercredi', shifts: [['09:00', '12:30'], ['16:00', '19:00']] },
+    { day: 'Jeudi', shifts: [['09:00', '12:30'], ['16:00', '19:00']] },
+    { day: 'Vendredi', shifts: [['09:00', '12:30'], ['16:00', '19:00']] },
+    { day: 'Samedi', shifts: [['09:00', '12:30'], ['16:00', '19:00']] },
+    { day: 'Dimanche', shifts: [['09:00', '13:00']] }
   ];
 
   var header = document.getElementById('header');
@@ -251,7 +251,9 @@
       var dayCell = document.createElement('td');
       dayCell.textContent = entry.day;
       var hoursCell = document.createElement('td');
-      hoursCell.textContent = entry.open + ' – ' + entry.close;
+      hoursCell.textContent = entry.shifts.length
+        ? entry.shifts.map(function (s) { return s[0] + ' – ' + s[1]; }).join(' / ')
+        : 'Fermé';
       row.appendChild(dayCell);
       row.appendChild(hoursCell);
       tableEl.appendChild(row);
@@ -266,7 +268,9 @@
   var todayHours = HOURS[(todayIndex + 6) % 7];
   if (todayHours && openBadge) {
     var nowMinutes = now.getHours() * 60 + now.getMinutes();
-    var isOpen = nowMinutes >= toMinutes(todayHours.open) && nowMinutes < toMinutes(todayHours.close);
+    var isOpen = todayHours.shifts.some(function (s) {
+      return nowMinutes >= toMinutes(s[0]) && nowMinutes < toMinutes(s[1]);
+    });
     openBadge.textContent = isOpen ? 'Ouvert maintenant' : 'Fermé pour le moment';
     openBadge.classList.toggle('is-closed', !isOpen);
   }

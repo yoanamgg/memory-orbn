@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Boucherie Ulysse &amp; Sandrine — Boucherie-Charcuterie Artisanale à Massat (Ariège)</title>
 <meta name="description" content="Boucherie Ulysse et Sandrine, boucherie-charcuterie artisanale à Massat, en Ariège. Viandes locales, charcuterie maison, plats traiteur et épicerie fine. Note 4,6/5 sur 22 avis Google.">
-<meta name="theme-color" content="#4A1212">
+<meta name="theme-color" content="#0B0807">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=10">
 <style>
 /* Critical inline styles — keep the preloader correct even if the external CSS is momentarily cached/stale */
 .preloader{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:radial-gradient(circle at 50% 35%,#3A0F0F,#1B0707 70%);color:#fff;transition:opacity .7s ease,visibility .7s ease}
@@ -99,13 +99,13 @@
 
     <nav class="main-nav" id="main-nav">
       <ul>
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#apropos">Notre histoire</a></li>
-        <li><a href="#produits">La carte</a></li>
-        <li><a href="#galerie">Galerie</a></li>
-        <li><a href="#avis">Avis</a></li>
-        <li><a href="#infos">Infos pratiques</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#accueil"><span class="hero-index-num">00</span>Accueil</a></li>
+        <li><a href="#apropos"><span class="hero-index-num">01</span>Notre histoire</a></li>
+        <li><a href="#produits"><span class="hero-index-num">02</span>La carte</a></li>
+        <li><a href="#galerie"><span class="hero-index-num">03</span>Galerie</a></li>
+        <li><a href="#avis"><span class="hero-index-num">04</span>Avis</a></li>
+        <li><a href="#infos"><span class="hero-index-num">05</span>Infos pratiques</a></li>
+        <li><a href="#contact"><span class="hero-index-num">06</span>Contact</a></li>
       </ul>
     </nav>
 
@@ -118,7 +118,8 @@
     </div>
 
     <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
-      <span></span><span></span><span></span>
+      <span class="nav-toggle-label">Menu</span>
+      <span class="nav-toggle-box"><span></span><span></span><span></span></span>
     </button>
   </div>
 </header>
@@ -132,6 +133,9 @@
   <a href="#infos"><span class="dot-label">Infos pratiques</span></a>
   <a href="#contact"><span class="dot-label">Contact</span></a>
 </nav>
+
+<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
 <main id="main">
 
@@ -186,8 +190,21 @@
     </a>
   </section>
 
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Viandes locales</span><span class="marquee-dot">•</span>
+      <span>Charcuterie maison</span><span class="marquee-dot">•</span>
+      <span>Depuis Massat, Ariège</span><span class="marquee-dot">•</span>
+      <span>Artisans bouchers passionnés</span><span class="marquee-dot">•</span>
+      <span>Viandes locales</span><span class="marquee-dot">•</span>
+      <span>Charcuterie maison</span><span class="marquee-dot">•</span>
+      <span>Depuis Massat, Ariège</span><span class="marquee-dot">•</span>
+      <span>Artisans bouchers passionnés</span><span class="marquee-dot">•</span>
+    </div>
+  </div>
+
   <!-- ============ NOTRE HISTOIRE ============ -->
-  <section class="story" id="apropos">
+  <section class="story" id="apropos" data-chapter="01">
     <div class="container story-grid">
       <div class="story-media" data-reveal>
         <img src="assets/photos/boucherie-savoir-faire-charcuterie.jpg" alt="Charcuterie suspendue et savoir-faire artisanal à la Boucherie Ulysse et Sandrine, à Massat" loading="lazy">
@@ -234,7 +251,7 @@
   </section>
 
   <!-- ============ LE TOUR DU COMPTOIR ============ -->
-  <section class="comptoir-story" id="savoir-faire">
+  <section class="comptoir-story" id="savoir-faire" data-chapter="02">
     <div class="container">
       <p class="chapter-label center" data-reveal>Chapitre 02</p>
       <h2 class="center" data-reveal>Le tour du comptoir</h2>
@@ -288,7 +305,7 @@
   </section>
 
   <!-- ============ LA CARTE ============ -->
-  <section class="carte" id="produits">
+  <section class="carte" id="produits" data-chapter="03">
     <div class="container">
       <p class="chapter-label center" data-reveal>Chapitre 03</p>
       <h2 class="center" data-reveal>La carte</h2>
@@ -393,7 +410,7 @@
   </section>
 
   <!-- ============ GALLERY ============ -->
-  <section class="gallery" id="galerie">
+  <section class="gallery" id="galerie" data-chapter="04">
     <div class="container">
       <p class="chapter-label center" data-reveal>Chapitre 04</p>
       <h2 class="center" data-reveal>Galerie</h2>
@@ -448,7 +465,7 @@
   </section>
 
   <!-- ============ REVIEWS ============ -->
-  <section class="reviews" id="avis">
+  <section class="reviews" id="avis" data-chapter="05">
     <div class="container">
       <div class="reviews-head" data-reveal>
         <div>
@@ -501,7 +518,7 @@
   </section>
 
   <!-- ============ INFOS PRATIQUES ============ -->
-  <section class="pratique" id="infos">
+  <section class="pratique" id="infos" data-chapter="06">
     <div class="container pratique-grid">
       <div class="pratique-media" data-reveal>
         <img src="assets/photos/boucherie-facade-village.jpg" alt="La boucherie Ulysse et Sandrine dans le village de Massat, en Ariège" loading="lazy">
@@ -538,7 +555,7 @@
   </section>
 
   <!-- ============ CONTACT ============ -->
-  <section class="contact" id="contact">
+  <section class="contact" id="contact" data-chapter="07">
     <div class="container contact-grid">
       <div class="contact-info" data-reveal>
         <p class="chapter-label">Chapitre 07</p>
@@ -669,7 +686,7 @@
   <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"/></svg>
 </button>
 
-<script src="js/main.js?v=9"></script>
+<script src="js/main.js?v=10"></script>
 <script>
 /* Bulletproof preloader removal — independent of the external JS file */
 (function(){function hide(){var p=document.getElementById('preloader');if(p)p.classList.add('is-done');}

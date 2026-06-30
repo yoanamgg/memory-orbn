@@ -295,6 +295,36 @@
     nextBtn.addEventListener('click', function () { track.scrollBy({ left: scrollAmount(), behavior: 'smooth' }); });
   }
 
+  /* ----- Curseur personnalisé (desktop) ----- */
+  var cursorDot = document.getElementById('cursor-dot');
+  var cursorRing = document.getElementById('cursor-ring');
+  if (cursorDot && cursorRing && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var ringX = window.innerWidth / 2, ringY = window.innerHeight / 2;
+    var mouseX = ringX, mouseY = ringY;
+    document.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX; mouseY = e.clientY;
+      cursorDot.style.transform = 'translate(' + mouseX + 'px, ' + mouseY + 'px) translate(-50%, -50%)';
+    });
+    function trackRing() {
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      cursorRing.style.transform = 'translate(' + ringX + 'px, ' + ringY + 'px) translate(-50%, -50%)';
+      window.requestAnimationFrame(trackRing);
+    }
+    window.requestAnimationFrame(trackRing);
+
+    document.addEventListener('mouseover', function (e) {
+      if (e.target.closest('a, button, input, textarea, [role="button"]')) {
+        document.body.classList.add('cursor-hover');
+      }
+    });
+    document.addEventListener('mouseout', function (e) {
+      if (e.target.closest('a, button, input, textarea, [role="button"]')) {
+        document.body.classList.remove('cursor-hover');
+      }
+    });
+  }
+
   /* ----- Back to top ----- */
   if (backToTop) {
     backToTop.addEventListener('click', function () {

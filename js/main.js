@@ -166,19 +166,21 @@
     });
   }
 
-  /* ----- Menu tabs ----- */
-  var tabs = document.querySelectorAll('.menu-tab');
-  var panels = document.querySelectorAll('.menu-panel');
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-      panels.forEach(function (p) { p.classList.remove('active'); });
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
-      var target = document.getElementById(tab.getAttribute('data-target'));
-      if (target) target.classList.add('active');
-    });
-  });
+  /* ----- Hero video: respect prefers-reduced-motion ----- */
+  var heroVideo = document.getElementById('hero-video');
+  var heroFallbackImg = document.getElementById('hero-fallback-img');
+  if (heroVideo) {
+    if (reduceMotion) {
+      heroVideo.pause();
+      heroVideo.hidden = true;
+      if (heroFallbackImg) heroFallbackImg.hidden = false;
+    } else {
+      heroVideo.addEventListener('error', function () {
+        heroVideo.hidden = true;
+        if (heroFallbackImg) heroFallbackImg.hidden = false;
+      });
+    }
+  }
 
   /* ----- Gallery 3D tilt ----- */
   var galleryItems = document.querySelectorAll('.gallery-item');

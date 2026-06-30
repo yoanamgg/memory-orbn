@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Boucherie Ulysse &amp; Sandrine — Boucherie-Charcuterie Artisanale à Massat (Ariège)</title>
 <meta name="description" content="Boucherie Ulysse et Sandrine, boucherie-charcuterie artisanale à Massat, en Ariège. Viandes locales, charcuterie maison, plats traiteur et épicerie fine. Note 4,6/5 sur 22 avis Google.">
-<meta name="theme-color" content="#7A1B1B">
+<meta name="theme-color" content="#4A1212">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=9">
 <style>
 /* Critical inline styles — keep the preloader correct even if the external CSS is momentarily cached/stale */
-.preloader{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:radial-gradient(circle at 50% 35%,#3A1414,#1E0E0E 70%);color:#fff;transition:opacity .7s ease,visibility .7s ease}
+.preloader{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:radial-gradient(circle at 50% 35%,#3A0F0F,#1B0707 70%);color:#fff;transition:opacity .7s ease,visibility .7s ease}
 .preloader.is-done{opacity:0;visibility:hidden;pointer-events:none}
-.preloader-mark{width:58px!important;height:58px!important;color:#E9CB8E}
+.preloader-mark{width:58px!important;height:58px!important;color:#D9B873}
 .preloader-text{font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:800;letter-spacing:.04em}
 .preloader-bar{width:150px;height:3px;border-radius:3px;background:rgba(255,255,255,.16);overflow:hidden}
 .no-js .preloader{display:none}
@@ -101,7 +101,7 @@
       <ul>
         <li><a href="#accueil">Accueil</a></li>
         <li><a href="#apropos">Notre histoire</a></li>
-        <li><a href="#produits">Nos produits</a></li>
+        <li><a href="#produits">La carte</a></li>
         <li><a href="#galerie">Galerie</a></li>
         <li><a href="#avis">Avis</a></li>
         <li><a href="#infos">Infos pratiques</a></li>
@@ -127,300 +127,308 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="accueil">
-    <!-- AI image prompt (EN) for hero background photo:
-         "Professional photo of an artisan French butcher shop counter, fresh cuts of beef and
-         charcuterie displayed under warm lighting, wood and brass details, mountain village
-         atmosphere, shallow depth of field, photorealistic, editorial food photography, 8k" -->
-    <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
-    <div class="hero-spotlight" id="hero-spotlight" aria-hidden="true"></div>
-    <span class="hero-orb hero-orb-1" aria-hidden="true"></span>
-    <span class="hero-orb hero-orb-2" aria-hidden="true"></span>
-    <div class="container hero-content" id="hero-content">
-      <p class="eyebrow" data-reveal>Boucherie-charcuterie artisanale • Massat, Ariège</p>
-      <h1 data-reveal>Boucherie Ulysse &amp; Sandrine</h1>
-      <p class="hero-subtitle" data-reveal>Viandes locales, charcuterie maison et plats traiteur préparés avec passion, au cœur du Couserans.</p>
-
-      <div class="hero-badges" data-reveal>
-        <span class="badge badge-rating">
-          <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-star"/></svg>
-          4,6 <small>(22 avis)</small>
-        </span>
-        <span class="badge badge-open" id="open-status-badge">Ouvert maintenant</span>
-        <span class="badge">Produits locaux &amp; faits maison</span>
-      </div>
-
-      <div class="hero-actions" data-reveal>
-        <a href="tel:+33956088586" class="btn btn-call btn-lg btn-magnetic">
-          <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
-          Appeler pour commander
-          <span class="btn-call-num">09 56 08 85 86</span>
-        </a>
-        <a href="#produits" class="btn btn-outline btn-lg btn-magnetic">Découvrir nos produits</a>
-      </div>
-
-      <ul class="hero-services" data-reveal>
-        <li><svg class="icon" aria-hidden="true"><use href="#icon-meat"/></svg> Viande fraîche sélectionnée</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#icon-chef"/></svg> Charcuterie faite maison</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg> Conseils de nos artisans</li>
-      </ul>
+    <div class="hero-media" aria-hidden="true">
+      <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/photos/boucherie-comptoir-charcuterie.jpg">
+        <source src="assets/video/boutique-hero.mp4" type="video/mp4">
+      </video>
+      <img class="hero-fallback-img" id="hero-fallback-img" src="assets/photos/boucherie-comptoir-charcuterie.jpg" alt="" hidden>
     </div>
+    <div class="hero-veil" aria-hidden="true"></div>
+    <p class="hero-vertical-label" aria-hidden="true">Massat · Ariège — Depuis l'artisanat</p>
+
+    <div class="container hero-layout">
+      <div class="hero-content" id="hero-content">
+        <p class="eyebrow" data-reveal>Boucherie-charcuterie artisanale</p>
+        <h1 data-reveal>Ulysse <em>&amp;</em> Sandrine</h1>
+        <p class="hero-subtitle" data-reveal>Viandes locales, charcuterie maison et plats traiteur préparés avec passion, au cœur du Couserans.</p>
+
+        <div class="hero-badges" data-reveal>
+          <span class="badge badge-rating">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-star"/></svg>
+            4,6 <small>(22 avis)</small>
+          </span>
+          <span class="badge badge-open" id="open-status-badge">Ouvert maintenant</span>
+          <span class="badge">Produits locaux &amp; faits maison</span>
+        </div>
+
+        <div class="hero-actions" data-reveal>
+          <a href="tel:+33956088586" class="btn btn-call btn-lg btn-magnetic">
+            <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+            Appeler pour commander
+            <span class="btn-call-num">09 56 08 85 86</span>
+          </a>
+          <a href="#produits" class="btn btn-outline btn-lg btn-magnetic">Découvrir la carte</a>
+        </div>
+      </div>
+
+      <nav class="hero-index" data-reveal aria-label="Sommaire de la page">
+        <a href="#apropos"><span class="hero-index-num">01</span>Notre histoire</a>
+        <a href="#produits"><span class="hero-index-num">02</span>La carte</a>
+        <a href="#galerie"><span class="hero-index-num">03</span>Galerie</a>
+        <a href="#avis"><span class="hero-index-num">04</span>Avis clients</a>
+        <a href="#infos"><span class="hero-index-num">05</span>Infos pratiques</a>
+        <a href="#contact"><span class="hero-index-num">06</span>Nous trouver</a>
+      </nav>
+    </div>
+
     <a href="#apropos" class="scroll-cue" aria-label="Découvrir la suite">
       <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg>
     </a>
   </section>
 
-  <!-- ============ STATS BAR ============ -->
-  <section class="stats-bar">
-    <div class="container stats-grid">
-      <div class="stat">
-        <strong><span class="count" data-count="4.6" data-decimals="1">4,6</span><span class="stat-sub">/5</span></strong>
-        <span>22 avis Google</span>
+  <!-- ============ NOTRE HISTOIRE ============ -->
+  <section class="story" id="apropos">
+    <div class="container story-grid">
+      <div class="story-media" data-reveal>
+        <img src="assets/photos/boucherie-savoir-faire-charcuterie.jpg" alt="Charcuterie suspendue et savoir-faire artisanal à la Boucherie Ulysse et Sandrine, à Massat" loading="lazy">
+        <figure class="story-media-inset">
+          <img src="assets/photos/boucherie-interieur-boutique.jpg" alt="Intérieur de la boutique de la Boucherie Ulysse et Sandrine" loading="lazy">
+        </figure>
       </div>
-      <div class="stat">
-        <strong><span class="count" data-count="100" data-suffix="%">100%</span></strong>
-        <span>Charcuterie faite maison</span>
-      </div>
-      <div class="stat">
-        <strong><span class="count" data-count="2">2</span></strong>
-        <span>Artisans bouchers passionnés</span>
-      </div>
-      <div class="stat">
-        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-leaf"/></svg>
-        <span>Produits du terroir ariégeois</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ MARQUEE ============ -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Côte de bœuf</span><span class="marquee-dot">✦</span>
-      <span>Saucisse fraîche maison</span><span class="marquee-dot">✦</span>
-      <span>Jambon sec</span><span class="marquee-dot">✦</span>
-      <span>Pâté de campagne</span><span class="marquee-dot">✦</span>
-      <span>Volailles fermières</span><span class="marquee-dot">✦</span>
-      <span>Plats cuisinés maison</span><span class="marquee-dot">✦</span>
-      <span>Fromages affinés</span><span class="marquee-dot">✦</span>
-      <span>Foie gras artisanal</span><span class="marquee-dot">✦</span>
-      <span>Côte de bœuf</span><span class="marquee-dot">✦</span>
-      <span>Saucisse fraîche maison</span><span class="marquee-dot">✦</span>
-      <span>Jambon sec</span><span class="marquee-dot">✦</span>
-      <span>Pâté de campagne</span><span class="marquee-dot">✦</span>
-      <span>Volailles fermières</span><span class="marquee-dot">✦</span>
-      <span>Plats cuisinés maison</span><span class="marquee-dot">✦</span>
-      <span>Fromages affinés</span><span class="marquee-dot">✦</span>
-      <span>Foie gras artisanal</span><span class="marquee-dot">✦</span>
-    </div>
-  </div>
-
-  <!-- ============ ABOUT ============ -->
-  <section class="about" id="apropos">
-    <div class="container about-grid">
-      <div class="about-media" data-reveal>
-        <img src="assets/photos/boucherie-comptoir-charcuterie.jpg" alt="Comptoir de la boucherie Ulysse et Sandrine à Massat, avec sa vitrine de charcuterie et viandes" loading="lazy" class="about-photo">
-      </div>
-      <div class="about-text" data-reveal>
-        <p class="section-eyebrow">Notre histoire</p>
-        <h2>Une boucherie-charcuterie familiale au cœur de Massat</h2>
-        <p>La Boucherie Ulysse &amp; Sandrine est née de la passion de deux artisans pour le métier de boucher-charcutier. Chaque jour, nous sélectionnons nos viandes auprès de producteurs locaux et préparons sur place notre charcuterie&nbsp;: pâtés, terrines, saucissons et jambons faits maison, dans la plus pure tradition du Couserans.</p>
-        <p>Que vous veniez pour le repas du dimanche, une commande de fête ou simplement un conseil sur la cuisson d'une pièce, vous retrouverez toujours le même accueil chaleureux et le même savoir-faire artisanal.</p>
-        <ul class="about-values">
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-leaf"/></svg> Viandes locales sélectionnées avec soin</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-chef"/></svg> Charcuterie &amp; plats préparés faits maison</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg> Conseils personnalisés de nos artisans bouchers</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg> Accueil familial et chaleureux</li>
+      <div class="story-text" data-reveal>
+        <p class="chapter-label">Chapitre 01</p>
+        <h2>Notre histoire</h2>
+        <p class="drop-cap">La Boucherie Ulysse &amp; Sandrine est née de la passion de deux artisans pour le métier de boucher-charcutier. Chaque jour, nous sélectionnons nos viandes auprès de producteurs locaux et préparons sur place notre charcuterie&nbsp;: pâtés, terrines, saucissons et jambons faits maison, dans la plus pure tradition du Couserans.</p>
+        <blockquote class="pull-quote">« Le même accueil chaleureux, le même savoir-faire artisanal, chaque jour. »</blockquote>
+        <p>Que vous veniez pour le repas du dimanche, une commande de fête ou simplement un conseil sur la cuisson d'une pièce, vous retrouverez toujours la même attention portée à chaque produit qui sort de notre laboratoire.</p>
+        <ul class="value-list">
+          <li><span class="value-num">01</span>Viandes locales sélectionnées avec soin</li>
+          <li><span class="value-num">02</span>Charcuterie &amp; plats préparés faits maison</li>
+          <li><span class="value-num">03</span>Conseils personnalisés de nos artisans bouchers</li>
+          <li><span class="value-num">04</span>Accueil familial et chaleureux</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ============ SERVICES / HIGHLIGHTS ============ -->
-  <section class="services" id="services">
-    <div class="container">
-      <p class="section-eyebrow center" data-reveal>Pourquoi nous choisir</p>
-      <h2 class="center" data-reveal>Un savoir-faire artisanal à votre service</h2>
-
-      <div class="services-grid" data-reveal>
-        <div class="service-card">
-          <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-meat"/></svg></span>
-          <h3>Viandes fraîches &amp; locales</h3>
-          <p>Bœuf, porc, agneau et volaille sélectionnés chez des producteurs de la région.</p>
-        </div>
-        <div class="service-card">
-          <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chef"/></svg></span>
-          <h3>Charcuterie artisanale maison</h3>
-          <p>Pâtés, terrines, saucissons et jambons préparés sur place chaque semaine.</p>
-        </div>
-        <div class="service-card">
-          <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-bag"/></svg></span>
-          <h3>Traiteur &amp; plats cuisinés</h3>
-          <p>Des plats prêts à réchauffer, parfaits pour les repas de famille et événements.</p>
-        </div>
-        <div class="service-card">
-          <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-cheese"/></svg></span>
-          <h3>Fromages &amp; épicerie fine</h3>
-          <p>Une sélection de fromages affinés, vins et produits du terroir ariégeois.</p>
-        </div>
-        <div class="service-card">
-          <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span>
-          <h3>Conseils &amp; découpe sur mesure</h3>
-          <p>Nos artisans bouchers vous conseillent et préparent vos pièces à la demande.</p>
-        </div>
-        <div class="service-card">
-          <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#icon-leaf"/></svg></span>
-          <h3>Commandes pour vos événements</h3>
-          <p>Fêtes de fin d'année, repas de famille&nbsp;: nous préparons votre commande sur mesure.</p>
-        </div>
+  <!-- ============ NUMBERS BAND ============ -->
+  <section class="numbers-band">
+    <div class="container numbers-row">
+      <div class="number" data-reveal>
+        <strong><span class="count" data-count="4.6" data-decimals="1">4,6</span><span class="number-sub">/5</span></strong>
+        <span>22 avis Google</span>
+      </div>
+      <div class="number" data-reveal>
+        <strong><span class="count" data-count="100" data-suffix="%">100%</span></strong>
+        <span>Charcuterie faite maison</span>
+      </div>
+      <div class="number" data-reveal>
+        <strong><span class="count" data-count="2">2</span></strong>
+        <span>Artisans bouchers passionnés</span>
+      </div>
+      <div class="number" data-reveal>
+        <strong>Massat</strong>
+        <span>Cœur du Couserans, Ariège</span>
       </div>
     </div>
   </section>
 
-  <!-- ============ STEPS / COMMANDER ============ -->
-  <section class="steps" id="commander">
+  <!-- ============ LE TOUR DU COMPTOIR ============ -->
+  <section class="comptoir-story" id="savoir-faire">
     <div class="container">
-      <p class="section-eyebrow center" data-reveal>Simple &amp; rapide</p>
-      <h2 class="center" data-reveal>Commander en 3 étapes</h2>
-      <p class="section-intro center" data-reveal>Viande fraîche, charcuterie maison ou plats traiteur&nbsp;: votre commande prête à l'heure souhaitée.</p>
+      <p class="chapter-label center" data-reveal>Chapitre 02</p>
+      <h2 class="center" data-reveal>Le tour du comptoir</h2>
+      <p class="section-intro center" data-reveal>Quatre univers, une même exigence&nbsp;: des produits frais, sélectionnés et préparés avec soin chaque semaine.</p>
+    </div>
 
-      <div class="steps-grid" data-reveal>
-        <div class="step">
-          <div class="step-num">1<svg class="icon" aria-hidden="true"><use href="#icon-meat"/></svg></div>
-          <h3>Choisissez vos produits</h3>
-          <p>Parcourez notre sélection de viandes, charcuterie maison et plats préparés.</p>
-          <a href="#produits" class="step-cta">Voir nos produits <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg></a>
-        </div>
-        <div class="step">
-          <div class="step-num">2<svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg></div>
-          <h3>Appelez ou passez en boutique</h3>
-          <p>Passez commande par téléphone ou venez directement nous voir en boutique.</p>
-          <a href="tel:+33956088586" class="step-cta">Appeler la boucherie <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg></a>
-        </div>
-        <div class="step">
-          <div class="step-num">3<svg class="icon" aria-hidden="true"><use href="#icon-bag"/></svg></div>
-          <h3>Récupérez votre commande</h3>
-          <p>Retirez votre commande en boutique, prête à l'heure souhaitée.</p>
-          <a href="#contact" class="step-cta">Nous trouver <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg></a>
-        </div>
+    <div class="story-row" data-reveal>
+      <div class="story-row-media"><img src="assets/photos/boucherie-vitrine-charcuterie.jpg" alt="Vitrine de charcuterie et viandes fraîches de la boucherie" loading="lazy"></div>
+      <div class="story-row-text">
+        <span class="story-row-num">01</span>
+        <h3>Viandes &amp; charcuterie fraîches</h3>
+        <p>Bœuf, porc, agneau et volailles fermières sélectionnés chez des producteurs de la région, à côté de notre charcuterie maison&nbsp;: pâtés, terrines, saucissons et jambons affinés en boutique.</p>
       </div>
+    </div>
+
+    <div class="story-row reverse" data-reveal>
+      <div class="story-row-media"><img src="assets/photos/boucherie-plateau-fromages.jpg" alt="Plateau de fromages affinés en vitrine" loading="lazy"></div>
+      <div class="story-row-text">
+        <span class="story-row-num">02</span>
+        <h3>Fromages affinés</h3>
+        <p>Une sélection de fromages de la région et d'ailleurs, choisis et affinés avec soin pour accompagner vos repas du quotidien comme vos grandes occasions.</p>
+      </div>
+    </div>
+
+    <div class="story-row" data-reveal>
+      <div class="story-row-media"><img src="assets/photos/boucherie-plats-prepares.jpg" alt="Plats traiteur et préparations maison en vitrine" loading="lazy"></div>
+      <div class="story-row-text">
+        <span class="story-row-num">03</span>
+        <h3>Traiteur &amp; plats cuisinés</h3>
+        <p>Pâtés en croûte, croquettes et plats préparés par nos soins, prêts à réchauffer chez vous&nbsp;: parfaits pour les repas de famille et les réceptions.</p>
+      </div>
+    </div>
+
+    <div class="story-row reverse" data-reveal>
+      <div class="story-row-media"><img src="assets/photos/boucherie-epicerie-fine.jpg" alt="Rayon épicerie fine avec vins et conserves artisanales" loading="lazy"></div>
+      <div class="story-row-text">
+        <span class="story-row-num">04</span>
+        <h3>Épicerie fine</h3>
+        <p>Vins, conserves de foie gras et confitures artisanales du terroir ariégeois&nbsp;: de quoi compléter votre commande avec des produits du coin.</p>
+      </div>
+    </div>
+
+    <div class="story-cta center" data-reveal>
+      <a href="tel:+33956088586" class="btn btn-call btn-lg btn-magnetic">
+        <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+        Appeler pour commander
+        <span class="btn-call-num">09 56 08 85 86</span>
+      </a>
+      <a href="#produits" class="btn btn-outline btn-lg btn-magnetic">Voir la carte complète</a>
     </div>
   </section>
 
-  <!-- ============ PRODUITS ============ -->
-  <section class="menu" id="produits">
+  <!-- ============ LA CARTE ============ -->
+  <section class="carte" id="produits">
     <div class="container">
-      <p class="section-eyebrow center" data-reveal>Nos produits</p>
-      <h2 class="center" data-reveal>Le savoir-faire d'une boucherie artisanale</h2>
-      <p class="section-intro center" data-reveal>Viandes fraîches, charcuterie maison et plats traiteur préparés chaque jour avec des produits locaux.</p>
+      <p class="chapter-label center" data-reveal>Chapitre 03</p>
+      <h2 class="center" data-reveal>La carte</h2>
+      <p class="section-intro center" data-reveal>Sélection non exhaustive de nos produits, susceptible d'évoluer selon les arrivages et la saison.</p>
 
-      <div class="menu-tabs" role="tablist" data-reveal>
-        <button class="menu-tab active" role="tab" aria-selected="true" data-target="panel-viandes">
-          <svg class="icon" aria-hidden="true"><use href="#icon-meat"/></svg> Viandes fraîches
-        </button>
-        <button class="menu-tab" role="tab" aria-selected="false" data-target="panel-charcuterie">
-          <svg class="icon" aria-hidden="true"><use href="#icon-chef"/></svg> Charcuterie maison
-        </button>
-        <button class="menu-tab" role="tab" aria-selected="false" data-target="panel-traiteur">
-          <svg class="icon" aria-hidden="true"><use href="#icon-bag"/></svg> Traiteur &amp; plats cuisinés
-        </button>
-        <button class="menu-tab" role="tab" aria-selected="false" data-target="panel-fromages">
-          <svg class="icon" aria-hidden="true"><use href="#icon-cheese"/></svg> Fromages &amp; épicerie fine
-        </button>
+      <div class="carte-grid">
+        <div class="carte-cat" data-reveal>
+          <h3><svg class="icon" aria-hidden="true"><use href="#icon-meat"/></svg> Viandes fraîches</h3>
+          <ul class="carte-list">
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Bœuf</span><span class="carte-leader"></span><span class="carte-item-price">Prix au kg</span></div>
+              <p class="carte-item-desc">Côtes, bavette, rumsteck, rôtis sélectionnés chez des éleveurs locaux</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Porc</span><span class="carte-leader"></span><span class="carte-item-price">Prix au kg</span></div>
+              <p class="carte-item-desc">Côtes, rôtis, filet mignon, travers, origine fermière</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Agneau</span><span class="carte-leader"></span><span class="carte-item-price">Prix au kg</span></div>
+              <p class="carte-item-desc">Gigot, côtelettes, épaule, idéal pour le repas du dimanche</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Volailles fermières</span><span class="carte-leader"></span><span class="carte-item-price">Prix au kg / pièce</span></div>
+              <p class="carte-item-desc">Poulet, pintade, canard élevés en plein air</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="carte-cat" data-reveal>
+          <h3><svg class="icon" aria-hidden="true"><use href="#icon-chef"/></svg> Charcuterie artisanale maison</h3>
+          <ul class="carte-list">
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Saucisson sec maison</span><span class="carte-leader"></span><span class="carte-item-price">Prix au kg</span></div>
+              <p class="carte-item-desc">Affiné en boutique, recette traditionnelle</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Pâté de campagne</span><span class="carte-leader"></span><span class="carte-item-price">Prix au kg</span></div>
+              <p class="carte-item-desc">Préparé chaque semaine dans notre laboratoire</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Jambon sec &amp; jambon blanc</span><span class="carte-leader"></span><span class="carte-item-price">Prix au kg</span></div>
+              <p class="carte-item-desc">Sélection façon Pyrénées</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Saucisse fraîche &amp; boudin</span><span class="carte-leader"></span><span class="carte-item-price">Prix au kg</span></div>
+              <p class="carte-item-desc">Faits maison, parfaits pour la plancha</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Terrines &amp; rillettes</span><span class="carte-leader"></span><span class="carte-item-price">Prix au kg</span></div>
+              <p class="carte-item-desc">Recettes maison, plusieurs variétés</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="carte-cat" data-reveal>
+          <h3><svg class="icon" aria-hidden="true"><use href="#icon-bag"/></svg> Traiteur &amp; plats cuisinés</h3>
+          <ul class="carte-list">
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Plats du jour</span><span class="carte-leader"></span><span class="carte-item-price">Selon arrivage</span></div>
+              <p class="carte-item-desc">Préparés par nos soins, à réchauffer chez vous</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Plateaux repas &amp; buffets</span><span class="carte-leader"></span><span class="carte-item-price">Sur devis</span></div>
+              <p class="carte-item-desc">Pour vos réunions de famille et événements</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Spécialités du Couserans</span><span class="carte-leader"></span><span class="carte-item-price">Selon saison</span></div>
+              <p class="carte-item-desc">Plats traditionnels pyrénéens, selon la saison</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Commandes de fêtes</span><span class="carte-leader"></span><span class="carte-item-price">Sur commande</span></div>
+              <p class="carte-item-desc">Volailles farcies, plats festifs sur réservation</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="carte-cat" data-reveal>
+          <h3><svg class="icon" aria-hidden="true"><use href="#icon-cheese"/></svg> Fromages &amp; épicerie fine</h3>
+          <ul class="carte-list">
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Fromages affinés</span><span class="carte-leader"></span><span class="carte-item-price">Prix au kg</span></div>
+              <p class="carte-item-desc">Sélection de fromages de la région et d'ailleurs</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Foie gras &amp; terrines fines</span><span class="carte-leader"></span><span class="carte-item-price">Prix au kg</span></div>
+              <p class="carte-item-desc">Idéal pour les grandes occasions</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Vins &amp; épicerie fine</span><span class="carte-leader"></span><span class="carte-item-price">En boutique</span></div>
+              <p class="carte-item-desc">Une sélection pour accompagner vos repas</p>
+            </li>
+            <li>
+              <div class="carte-item-head"><span class="carte-item-name">Conserves &amp; confitures artisanales</span><span class="carte-leader"></span><span class="carte-item-price">En boutique</span></div>
+              <p class="carte-item-desc">Produits du terroir ariégeois</p>
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <div class="menu-panels">
-        <div class="menu-panel active" id="panel-viandes" data-reveal>
-          <h3 class="menu-panel-title">Viandes fraîches</h3>
-          <ul class="menu-list">
-            <li><span class="menu-item-name">Bœuf</span><span class="menu-item-desc">Côtes, bavette, rumsteck, rôtis sélectionnés chez des éleveurs locaux</span><span class="menu-item-price">Prix au kg</span></li>
-            <li><span class="menu-item-name">Porc</span><span class="menu-item-desc">Côtes, rôtis, filet mignon, travers, origine fermière</span><span class="menu-item-price">Prix au kg</span></li>
-            <li><span class="menu-item-name">Agneau</span><span class="menu-item-desc">Gigot, côtelettes, épaule, idéal pour le repas du dimanche</span><span class="menu-item-price">Prix au kg</span></li>
-            <li><span class="menu-item-name">Volailles fermières</span><span class="menu-item-desc">Poulet, pintade, canard élevés en plein air</span><span class="menu-item-price">Prix au kg / pièce</span></li>
-          </ul>
-        </div>
-
-        <div class="menu-panel" id="panel-charcuterie" data-reveal>
-          <h3 class="menu-panel-title">Charcuterie artisanale maison</h3>
-          <ul class="menu-list">
-            <li><span class="menu-item-name">Saucisson sec maison</span><span class="menu-item-desc">Affiné en boutique, recette traditionnelle</span><span class="menu-item-price">Prix au kg</span></li>
-            <li><span class="menu-item-name">Pâté de campagne</span><span class="menu-item-desc">Préparé chaque semaine dans notre laboratoire</span><span class="menu-item-price">Prix au kg</span></li>
-            <li><span class="menu-item-name">Jambon sec &amp; jambon blanc</span><span class="menu-item-desc">Sélection façon Pyrénées</span><span class="menu-item-price">Prix au kg</span></li>
-            <li><span class="menu-item-name">Saucisse fraîche &amp; boudin</span><span class="menu-item-desc">Faits maison, parfaits pour la plancha</span><span class="menu-item-price">Prix au kg</span></li>
-            <li><span class="menu-item-name">Terrines &amp; rillettes</span><span class="menu-item-desc">Recettes maison, plusieurs variétés</span><span class="menu-item-price">Prix au kg</span></li>
-          </ul>
-        </div>
-
-        <div class="menu-panel" id="panel-traiteur" data-reveal>
-          <h3 class="menu-panel-title">Traiteur &amp; plats cuisinés</h3>
-          <ul class="menu-list">
-            <li><span class="menu-item-name">Plats du jour</span><span class="menu-item-desc">Préparés par nos soins, à réchauffer chez vous</span><span class="menu-item-price">Selon arrivage</span></li>
-            <li><span class="menu-item-name">Plateaux repas &amp; buffets</span><span class="menu-item-desc">Pour vos réunions de famille et événements</span><span class="menu-item-price">Sur devis</span></li>
-            <li><span class="menu-item-name">Spécialités du Couserans</span><span class="menu-item-desc">Plats traditionnels pyrénéens, selon la saison</span><span class="menu-item-price">Selon saison</span></li>
-            <li><span class="menu-item-name">Commandes de fêtes</span><span class="menu-item-desc">Volailles farcies, plats festifs sur réservation</span><span class="menu-item-price">Sur commande</span></li>
-          </ul>
-        </div>
-
-        <div class="menu-panel" id="panel-fromages" data-reveal>
-          <h3 class="menu-panel-title">Fromages &amp; épicerie fine</h3>
-          <ul class="menu-list">
-            <li><span class="menu-item-name">Fromages affinés</span><span class="menu-item-desc">Sélection de fromages de la région et d'ailleurs</span><span class="menu-item-price">Prix au kg</span></li>
-            <li><span class="menu-item-name">Foie gras &amp; terrines fines</span><span class="menu-item-desc">Idéal pour les grandes occasions</span><span class="menu-item-price">Prix au kg</span></li>
-            <li><span class="menu-item-name">Vins &amp; épicerie fine</span><span class="menu-item-desc">Une sélection pour accompagner vos repas</span><span class="menu-item-price">En boutique</span></li>
-            <li><span class="menu-item-name">Conserves &amp; confitures artisanales</span><span class="menu-item-desc">Produits du terroir ariégeois</span><span class="menu-item-price">En boutique</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="menu-note" data-reveal>Sélection non exhaustive, susceptible d'évoluer selon les arrivages et la saison. <a href="#contact">Contactez-nous</a> pour connaître nos tarifs ou passer une commande spéciale.</p>
+      <p class="menu-note" data-reveal><a href="#contact">Contactez-nous</a> pour connaître nos tarifs ou passer une commande spéciale.</p>
     </div>
   </section>
 
   <!-- ============ GALLERY ============ -->
   <section class="gallery" id="galerie">
     <div class="container">
-      <p class="section-eyebrow center" data-reveal>Galerie</p>
-      <h2 class="center" data-reveal>Un avant-goût de notre boutique</h2>
+      <p class="chapter-label center" data-reveal>Chapitre 04</p>
+      <h2 class="center" data-reveal>Galerie</h2>
       <p class="gallery-hint center" data-reveal>Survolez une photo (ou touchez-la sur mobile) pour l'effet 3D.</p>
 
-      <div class="gallery-grid" data-reveal>
-        <figure class="gallery-item gallery-item-photo">
-          <img src="assets/photos/boucherie-vitrine-viandes.jpg" alt="Vitrine de viandes fraîches et rôtis de la boucherie Ulysse et Sandrine" loading="lazy">
-          <figcaption>Notre vitrine de viandes fraîches</figcaption>
+      <div class="gallery-collage" data-reveal>
+        <figure class="gallery-item gallery-item-photo collage-a">
+          <img src="assets/photos/boucherie-comptoir-charcuterie.jpg" alt="Comptoir de charcuterie de la boucherie Ulysse et Sandrine à Massat" loading="lazy">
+          <figcaption>Le comptoir charcuterie</figcaption>
         </figure>
 
-        <figure class="gallery-item gallery-item-photo">
-          <img src="assets/photos/boucherie-pieces-boeuf.jpg" alt="Belles pièces de bœuf sélectionnées en vitrine" loading="lazy">
-          <figcaption>Belles pièces de bœuf sélectionnées</figcaption>
+        <figure class="gallery-item gallery-item-photo collage-b">
+          <img src="assets/photos/boucherie-vitrine-charcuterie.jpg" alt="Vitrine de viandes et charcuterie fraîches" loading="lazy">
+          <figcaption>Notre vitrine</figcaption>
         </figure>
 
-        <figure class="gallery-item gallery-item-photo">
-          <img src="assets/photos/boucherie-plats-prepares.jpg" alt="Plats préparés, volailles et charcuterie en vitrine" loading="lazy">
-          <figcaption>Plats préparés &amp; volailles fermières</figcaption>
-        </figure>
-
-        <figure class="gallery-item gallery-item-photo">
-          <img src="assets/photos/boucherie-foie-gras-terrines.jpg" alt="Foie gras et terrines maison présentés en vitrine" loading="lazy">
-          <figcaption>Foie gras et terrines maison</figcaption>
-        </figure>
-
-        <figure class="gallery-item gallery-item-photo">
+        <figure class="gallery-item gallery-item-photo collage-c">
           <img src="assets/photos/boucherie-plateau-fromages.jpg" alt="Plateau de fromages affinés en vitrine" loading="lazy">
           <figcaption>Plateau de fromages affinés</figcaption>
         </figure>
 
-        <figure class="gallery-item gallery-item-photo">
+        <figure class="gallery-item gallery-item-photo collage-d">
+          <img src="assets/photos/boucherie-plats-prepares.jpg" alt="Plats préparés et traiteur en vitrine" loading="lazy">
+          <figcaption>Plats préparés maison</figcaption>
+        </figure>
+
+        <figure class="gallery-item gallery-item-photo collage-e">
           <img src="assets/photos/boucherie-epicerie-fine.jpg" alt="Rayon épicerie fine avec vins et conserves artisanales" loading="lazy">
           <figcaption>Notre épicerie fine</figcaption>
         </figure>
 
-        <figure class="gallery-item gallery-item-photo">
-          <img src="assets/photos/boucherie-comptoir-charcuterie.jpg" alt="Comptoir de charcuterie de la boucherie à Massat" loading="lazy">
-          <figcaption>Le comptoir charcuterie</figcaption>
+        <figure class="gallery-item gallery-item-photo collage-f">
+          <img src="assets/photos/boucherie-savoir-faire-charcuterie.jpg" alt="Charcuterie suspendue, savoir-faire artisanal" loading="lazy">
+          <figcaption>Notre savoir-faire</figcaption>
         </figure>
 
-        <!-- AI image prompt (EN): "Photorealistic photo of a small French village butcher shop
-             storefront, traditional signage, stone building, mountain backdrop, warm daylight,
-             editorial architecture photography" -->
-        <figure class="gallery-item ph-8"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg><figcaption>Façade de la boucherie (photo à venir)</figcaption></figure>
+        <figure class="gallery-item gallery-item-photo collage-g">
+          <img src="assets/photos/boucherie-interieur-boutique.jpg" alt="Intérieur de la boutique à Massat" loading="lazy">
+          <figcaption>Notre boutique</figcaption>
+        </figure>
+
+        <figure class="gallery-item gallery-item-photo collage-h">
+          <img src="assets/photos/boucherie-facade-village.jpg" alt="La boucherie Ulysse et Sandrine dans le village de Massat, en Ariège" loading="lazy">
+          <figcaption>Au cœur du village de Massat</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -430,7 +438,7 @@
     <div class="container">
       <div class="reviews-head" data-reveal>
         <div>
-          <p class="section-eyebrow">Avis clients</p>
+          <p class="chapter-label">Chapitre 05</p>
           <h2>Ce que nos clients en pensent</h2>
         </div>
         <div class="rating-summary">
@@ -479,19 +487,22 @@
   </section>
 
   <!-- ============ INFOS PRATIQUES ============ -->
-  <section class="infos" id="infos">
-    <div class="container">
-      <p class="section-eyebrow center" data-reveal>Infos pratiques</p>
-      <h2 class="center" data-reveal>Tout savoir avant de venir</h2>
+  <section class="pratique" id="infos">
+    <div class="container pratique-grid">
+      <div class="pratique-media" data-reveal>
+        <img src="assets/photos/boucherie-facade-village.jpg" alt="La boucherie Ulysse et Sandrine dans le village de Massat, en Ariège" loading="lazy">
+      </div>
+      <div class="pratique-text" data-reveal>
+        <p class="chapter-label">Chapitre 06</p>
+        <h2>Infos pratiques</h2>
 
-      <div class="infos-grid">
-        <div class="infos-card" data-reveal>
+        <div class="pratique-block">
           <h3><svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg> Horaires d'ouverture</h3>
           <table class="hours-table" id="hours-table" aria-label="Horaires d'ouverture"></table>
           <p class="infos-note">Horaires à titre indicatif — à confirmer par téléphone.</p>
         </div>
 
-        <div class="infos-card" data-reveal>
+        <div class="pratique-block">
           <h3><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg> Notre savoir-faire</h3>
           <ul class="tag-list">
             <li>Découpe et préparation maison</li>
@@ -500,16 +511,7 @@
           </ul>
         </div>
 
-        <div class="infos-card" data-reveal>
-          <h3><svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg> Ambiance &amp; clientèle</h3>
-          <ul class="tag-list">
-            <li>Accueil familial et chaleureux</li>
-            <li>Boutique de village au cœur de Massat</li>
-            <li>Habitués et visiteurs de passage bienvenus</li>
-          </ul>
-        </div>
-
-        <div class="infos-card" data-reveal>
+        <div class="pratique-block">
           <h3><svg class="icon" aria-hidden="true"><use href="#icon-parking"/></svg> Accès &amp; parking</h3>
           <ul class="tag-list">
             <li>Parking à proximité dans le village</li>
@@ -525,7 +527,7 @@
   <section class="contact" id="contact">
     <div class="container contact-grid">
       <div class="contact-info" data-reveal>
-        <p class="section-eyebrow">Contact &amp; commandes</p>
+        <p class="chapter-label">Chapitre 07</p>
         <h2>Venez nous rendre visite</h2>
 
         <ul class="contact-list">
@@ -614,10 +616,10 @@
       </div>
     </div>
     <nav class="footer-links">
-      <h4>Liens rapides</h4>
+      <h4>Sommaire</h4>
       <ul>
         <li><a href="#apropos">Notre histoire</a></li>
-        <li><a href="#produits">Nos produits</a></li>
+        <li><a href="#produits">La carte</a></li>
         <li><a href="#galerie">Galerie</a></li>
         <li><a href="#avis">Avis</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -642,7 +644,7 @@
 <nav class="action-bar" aria-label="Actions rapides">
   <a href="tel:+33956088586" class="action-accent"><svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>Appeler</a>
   <a href="https://www.google.com/maps/dir/?api=1&destination=188+Rue+de+la+Montagne+09320+Massat" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>Itinéraire</a>
-  <a href="#produits"><svg class="icon" aria-hidden="true"><use href="#icon-meat"/></svg>Produits</a>
+  <a href="#produits"><svg class="icon" aria-hidden="true"><use href="#icon-meat"/></svg>Carte</a>
   <a href="#contact"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>Contact</a>
 </nav>
 
@@ -653,7 +655,7 @@
   <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"/></svg>
 </button>
 
-<script src="js/main.js?v=8"></script>
+<script src="js/main.js?v=9"></script>
 <script>
 /* Bulletproof preloader removal — independent of the external JS file */
 (function(){function hide(){var p=document.getElementById('preloader');if(p)p.classList.add('is-done');}

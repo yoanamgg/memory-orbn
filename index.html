@@ -123,6 +123,16 @@
   </div>
 </header>
 
+<nav class="section-dots" id="section-dots" aria-label="Navigation rapide entre les sections">
+  <a href="#accueil" class="active"><span class="dot-label">Accueil</span></a>
+  <a href="#apropos"><span class="dot-label">Notre histoire</span></a>
+  <a href="#produits"><span class="dot-label">La carte</span></a>
+  <a href="#galerie"><span class="dot-label">Galerie</span></a>
+  <a href="#avis"><span class="dot-label">Avis</span></a>
+  <a href="#infos"><span class="dot-label">Infos pratiques</span></a>
+  <a href="#contact"><span class="dot-label">Contact</span></a>
+</nav>
+
 <main id="main">
 
   <!-- ============ HERO ============ -->
@@ -387,7 +397,11 @@
     <div class="container">
       <p class="chapter-label center" data-reveal>Chapitre 04</p>
       <h2 class="center" data-reveal>Galerie</h2>
-      <p class="gallery-hint center" data-reveal>Survolez une photo (ou touchez-la sur mobile) pour l'effet 3D.</p>
+      <p class="gallery-hint center" data-reveal>Survolez une photo pour l'effet 3D — sur mobile, inclinez votre téléphone.</p>
+      <button class="gyro-prompt" id="gyro-prompt" type="button" hidden>
+        <svg class="icon" aria-hidden="true"><use href="#icon-cleaver"/></svg>
+        Activer l'effet 3D au mouvement
+      </button>
 
       <div class="gallery-collage" data-reveal>
         <figure class="gallery-item gallery-item-photo collage-a">

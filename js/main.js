@@ -75,8 +75,9 @@
     });
   }
 
-  /* ----- Active nav link on scroll ----- */
+  /* ----- Active nav link + section dots on scroll ----- */
   var navLinks = document.querySelectorAll('.main-nav a');
+  var dotLinks = document.querySelectorAll('.section-dots a');
   var sections = Array.prototype.map.call(navLinks, function (link) {
     return document.querySelector(link.getAttribute('href'));
   }).filter(Boolean);
@@ -88,6 +89,9 @@
         var id = '#' + entry.target.id;
         navLinks.forEach(function (link) {
           link.classList.toggle('active', link.getAttribute('href') === id);
+        });
+        dotLinks.forEach(function (dot) {
+          dot.classList.toggle('active', dot.getAttribute('href') === id);
         });
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
@@ -204,18 +208,80 @@
         });
       });
     } else {
-      galleryItems.forEach(function (item) {
-        item.addEventListener('touchstart', function () {
-          item.style.setProperty('--rx', '8deg');
-          item.style.setProperty('--ry', '-8deg');
-          item.style.setProperty('--scale', '1.05');
-          setTimeout(function () {
-            item.style.setProperty('--rx', '0deg');
-            item.style.setProperty('--ry', '0deg');
-            item.style.setProperty('--scale', '1');
-          }, 350);
-        }, { passive: true });
-      });
+      /* Real gyroscope-driven 3D tilt on touch devices */
+      var gyroBaseline = null;
+      var gyroActive = false;
+      var gallerySection = document.getElementById('galerie');
+      var galleryInView = false;
+
+      function resetTilt() {
+        gyroBaseline = null;
+        galleryItems.forEach(function (item) {
+          item.style.setProperty('--rx', '0deg');
+          item.style.setProperty('--ry', '0deg');
+          item.style.setProperty('--scale', '1');
+        });
+      }
+
+      function onDeviceOrientation(e) {
+        if (!galleryInView || e.beta === null || e.gamma === null) return;
+        if (gyroBaseline === null) gyroBaseline = { beta: e.beta, gamma: e.gamma };
+        var dx = Math.max(-18, Math.min(18, e.gamma - gyroBaseline.gamma));
+        var dy = Math.max(-18, Math.min(18, e.beta - gyroBaseline.beta));
+        galleryItems.forEach(function (item) {
+          item.style.setProperty('--rx', (dy * -0.6).toFixed(2) + 'deg');
+          item.style.setProperty('--ry', (dx * 0.6).toFixed(2) + 'deg');
+          item.style.setProperty('--scale', '1.025');
+        });
+      }
+
+      function startGyro() {
+        if (gyroActive) return;
+        gyroActive = true;
+        window.addEventListener('deviceorientation', onDeviceOrientation);
+      }
+
+      if (gallerySection && 'IntersectionObserver' in window) {
+        var galleryViewObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            galleryInView = entry.isIntersecting;
+            if (!galleryInView) resetTilt();
+          });
+        }, { threshold: 0.3 });
+        galleryViewObserver.observe(gallerySection);
+      } else {
+        galleryInView = true;
+      }
+
+      var gyroPrompt = document.getElementById('gyro-prompt');
+      if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+        if (gyroPrompt) {
+          gyroPrompt.hidden = false;
+          gyroPrompt.addEventListener('click', function () {
+            DeviceOrientationEvent.requestPermission().then(function (state) {
+              if (state === 'granted') {
+                startGyro();
+                gyroPrompt.hidden = true;
+              }
+            }).catch(function () {});
+          });
+        }
+      } else if ('DeviceOrientationEvent' in window) {
+        startGyro();
+      } else {
+        galleryItems.forEach(function (item) {
+          item.addEventListener('touchstart', function () {
+            item.style.setProperty('--rx', '8deg');
+            item.style.setProperty('--ry', '-8deg');
+            item.style.setProperty('--scale', '1.05');
+            setTimeout(function () {
+              item.style.setProperty('--rx', '0deg');
+              item.style.setProperty('--ry', '0deg');
+              item.style.setProperty('--scale', '1');
+            }, 350);
+          }, { passive: true });
+        });
+      }
     }
   }
 
